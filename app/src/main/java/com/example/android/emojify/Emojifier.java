@@ -1,14 +1,18 @@
 package com.example.android.emojify;
 
+import android.content.Context;
+import android.graphics.Bitmap;
 import android.util.Log;
+import android.util.SparseArray;
 import android.widget.Toast;
 
 import com.google.android.gms.vision.Frame;
+import com.google.android.gms.vision.face.Face;
 import com.google.android.gms.vision.face.FaceDetector;
 
-public class Emojifier {
+ class Emojifier {
    private static final String LOG_TAG = Emojifier.class.getSimpleName();
-   static void detectFaces(){
+   static void detectFaces(Context context, Bitmap bitmap){
       // Create the face detector, disable tracking and enable classifications
       FaceDetector detector = new FaceDetector.Builder(context)
               .setTrackingEnabled(false)

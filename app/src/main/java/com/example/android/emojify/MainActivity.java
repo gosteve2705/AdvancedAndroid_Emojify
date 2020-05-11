@@ -18,6 +18,7 @@ package com.example.android.emojify;
 
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -25,16 +26,17 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import androidx.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
-import androidx.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.io.File;
 import java.io.IOException;
@@ -171,6 +173,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Method for processing the captured image and setting it to the TextView.
      */
+    @SuppressLint("RestrictedApi")
     private void processAndSetImage() {
 
         // Toggle Visibility of the views
@@ -225,12 +228,13 @@ public class MainActivity extends AppCompatActivity {
      *
      * @param view The clear button.
      */
+    @SuppressLint("RestrictedApi")
     public void clearImage(View view) {
         // Clear the image and toggle the view visibility
         mImageView.setImageResource(0);
         mEmojifyButton.setVisibility(View.VISIBLE);
         mTitleTextView.setVisibility(View.VISIBLE);
-        mShareFab.setVisibility(View.GONE);
+       mShareFab.setVisibility(View.GONE);
         mSaveFab.setVisibility(View.GONE);
         mClearFab.setVisibility(View.GONE);
 
